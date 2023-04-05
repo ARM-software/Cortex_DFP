@@ -2,11 +2,11 @@
  * @file     ARMCM7.h
  * @brief    CMSIS Core Peripheral Access Layer Header File for
  *           ARMCM7 Device (configured for CM7 without FPU)
- * @version  V5.3.3
+ * @version  V6.0.0
  * @date     01. May 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -95,8 +95,8 @@ typedef enum IRQn
 #define __VTOR_PRESENT            1U        /* VTOR present */
 #define __NVIC_PRIO_BITS          3U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
-#define __FPU_PRESENT             0U        /* no FPU present */
-#define __FPU_DP                  0U        /* unused */
+#define __FPU_PRESENT             1U        /* no FPU present */
+#define __FPU_DP                  1U        /* unused */
 #define __ICACHE_PRESENT          1U        /* Instruction Cache present */
 #define __DCACHE_PRESENT          1U        /* Data Cache present */
 #define __DTCM_PRESENT            1U        /* Data Tightly Coupled Memory present */

@@ -2,11 +2,11 @@
  * @file     ARMCM23.h
  * @brief    CMSIS Core Peripheral Access Layer Header File for
  *           ARMCM23 Device
- * @version  V5.3.2
+ * @version  V6.0.0
  * @date     01. May 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -91,7 +91,7 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __CM23_REV                0x0100U   /* Core revision r1p0 */
-#define __SAUREGION_PRESENT       0U        /* SAU regions are not present */
+#define __SAUREGION_PRESENT       1U        /* SAU regions are not present */
 #define __MPU_PRESENT             1U        /* MPU is present */
 #define __VTOR_PRESENT            1U        /* VTOR is present */
 #define __NVIC_PRIO_BITS          2U        /* Number of Bits used for Priority Levels */
