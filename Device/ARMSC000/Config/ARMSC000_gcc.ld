@@ -271,7 +271,7 @@ SECTIONS
   } > RAM2 AT > RAM2
 */
 
-  .heap (COPY) :
+  .heap (NOLOAD) :
   {
     . = ALIGN(8);
     __end__ = .;
@@ -281,7 +281,7 @@ SECTIONS
     __HeapLimit = .;
   } > RAM
 
-  .stack (ORIGIN(RAM) + LENGTH(RAM) - __STACK_SIZE) (COPY) :
+  .stack (ORIGIN(RAM) + LENGTH(RAM) - __STACK_SIZE) (NOLOAD) :
   {
     . = ALIGN(8);
     __StackLimit = .;
