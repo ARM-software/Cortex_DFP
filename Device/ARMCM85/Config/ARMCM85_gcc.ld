@@ -276,7 +276,7 @@ SECTIONS
   } > RAM2 AT > RAM2
 */
 
-  .heap (COPY) :
+  .heap (NOLOAD) :
   {
     . = ALIGN(8);
     __end__ = .;
@@ -286,7 +286,7 @@ SECTIONS
     __HeapLimit = .;
   } > RAM
 
-  .stack (ORIGIN(RAM) + LENGTH(RAM) - __STACK_SIZE - __STACKSEAL_SIZE) (COPY) :
+  .stack (ORIGIN(RAM) + LENGTH(RAM) - __STACK_SIZE - __STACKSEAL_SIZE) (NOLOAD) :
   {
     . = ALIGN(8);
     __StackLimit = .;
@@ -300,7 +300,7 @@ SECTIONS
      to use ARMv8-M stack sealing uncomment '.stackseal' section
    */
 /*
-  .stackseal (ORIGIN(RAM) + LENGTH(RAM) - __STACKSEAL_SIZE) (COPY) :
+  .stackseal (ORIGIN(RAM) + LENGTH(RAM) - __STACKSEAL_SIZE) (NOLOAD) :
   {
     . = ALIGN(8);
     __StackSeal = .;
