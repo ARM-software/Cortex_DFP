@@ -1,11 +1,11 @@
 /******************************************************************************
  * @file     gcc_arm.ld
  * @brief    GNU Linker Script for Cortex-M based device
- * @version  V2.2.0
- * @date     20. January 2021
+ * @version  V2.2.1
+ * @date     20. June 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -177,6 +177,12 @@ SECTIONS
   {
     . = ALIGN(4);
     __zero_table_start__ = .;
+
+/*  .bss initialization to zero is already done during C Run-Time Startup.
+    LONG (__bss_start__)
+    LONG ((__bss_end__ - __bss_start__) / 4)
+*/
+
     /* Add each additional bss section here */
 /*
     LONG (__bss2_start__)
