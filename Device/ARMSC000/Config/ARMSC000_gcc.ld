@@ -1,11 +1,11 @@
 /******************************************************************************
  * @file     gcc_arm.ld
  * @brief    GNU Linker Script for Cortex-M based device
- * @version  V2.1.0
- * @date     04. August 2020
+ * @version  V2.1.1
+ * @date     20. June 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -170,6 +170,12 @@ SECTIONS
   {
     . = ALIGN(4);
     __zero_table_start__ = .;
+
+/*  .bss initialization to zero is already done during C Run-Time Startup.
+    LONG (__bss_start__)
+    LONG ((__bss_end__ - __bss_start__) / 4)
+*/
+
     /* Add each additional bss section here */
 /*
     LONG (__bss2_start__)
@@ -181,7 +187,7 @@ SECTIONS
   /**
    * Location counter can end up 2byte aligned with narrow Thumb code but
    * __etext is assumed by startup code to be the LMA of a section in RAM
-   * which must be 4byte aligned 
+   * which must be 4byte aligned
    */
   __etext = ALIGN (4);
 
