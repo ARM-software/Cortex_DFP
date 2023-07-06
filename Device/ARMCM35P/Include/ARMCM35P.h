@@ -2,11 +2,11 @@
  * @file     ARMCM35P.h
  * @brief    CMSIS Core Peripheral Access Layer Header File for
  *           ARMCM35P Device (configured for ARMCM35P without FPU, without DSP extension, without TrustZone)
- * @version  V1.0.1
- * @date     01. May 2023
+ * @version  V1.0.2
+ * @date     06. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -92,7 +92,7 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __CM35P_REV               0x0000U   /* Core revision r0p0 */
-#define __SAUREGION_PRESENT       0U        /* SAU regions present */
+#define __SAUREGION_PRESENT       1U        /* SAU regions present */
 #define __MPU_PRESENT             1U        /* MPU present */
 #define __VTOR_PRESENT            1U        /* VTOR present */
 #define __NVIC_PRIO_BITS          3U        /* Number of Bits used for Priority Levels */
