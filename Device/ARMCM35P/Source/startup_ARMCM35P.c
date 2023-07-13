@@ -1,11 +1,11 @@
 /******************************************************************************
  * @file     startup_ARMCM35P.c
  * @brief    CMSIS-Core Device Startup File for Cortex-M35P Device
- * @version  V2.1.0
- * @date     16. December 2020
+ * @version  V3.0.0
+ * @date     13. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -24,12 +24,6 @@
 
 #if defined (ARMCM35P)
   #include "ARMCM35P.h"
-#elif defined (ARMCM35P_TZ)
-  #include "ARMCM35P_TZ.h"
-#elif defined (ARMCM35P_DSP_FP)
-  #include "ARMCM35P_DSP_FP.h"
-#elif defined (ARMCM35P_DSP_FP_TZ)
-  #include "ARMCM35P_DSP_FP_TZ.h"
 #else
   #error device not specified!
 #endif

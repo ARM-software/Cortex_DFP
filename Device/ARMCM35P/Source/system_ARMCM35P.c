@@ -2,11 +2,11 @@
  * @file     system_ARMCM35P.c
  * @brief    CMSIS Device System Source File for
  *           ARMCM35P Device
- * @version  V1.0.1
- * @date     15. November 2019
+ * @version  V2.0.0
+ * @date     13. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -25,17 +25,6 @@
 
 #if defined (ARMCM35P)
   #include "ARMCM35P.h"
-#elif defined (ARMCM35P_TZ)
-  #include "ARMCM35P_TZ.h"
-
-  #if defined (__ARM_FEATURE_CMSE) &&  (__ARM_FEATURE_CMSE == 3U)
-    #include "partition_ARMCM35P.h"
-  #endif
-#elif defined (ARMCM35P_DSP_FP)
-  #include "ARMCM35P_DSP_FP.h"
-#elif defined (ARMCM35P_DSP_FP_TZ)
-  #include "ARMCM35P_DSP_FP_TZ.h"
-
   #if defined (__ARM_FEATURE_CMSE) &&  (__ARM_FEATURE_CMSE == 3U)
     #include "partition_ARMCM35P.h"
   #endif
