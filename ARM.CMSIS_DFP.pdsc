@@ -578,7 +578,7 @@ and 8-bit Java bytecodes in Jazelle state.
           <file category="include"  name="Device/ARMCM35P/Include/"/>
           <!-- startup / system file -->
           <file category="sourceC"      name="Device/ARMCM35P/Source/startup_ARMCM35P.c"             version="3.0.0" attr="config"/>
-          <file category="sourceC"      name="Device/ARMCM35P/Source/system_ARMCM35P.c"              version="2.0." attr="config"/>
+          <file category="sourceC"      name="Device/ARMCM35P/Source/system_ARMCM35P.c"              version="2.0.0" attr="config"/>
           <!-- SAU configuration -->
           <file category="header"       name="Device/ARMCM35P/Config/partition_ARMCM35P.h"           version="1.0.0" attr="config" condition="TZ Secure"/>
         </files>

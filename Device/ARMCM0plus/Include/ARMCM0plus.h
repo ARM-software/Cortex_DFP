@@ -1,12 +1,12 @@
 /**************************************************************************//**
  * @file     ARMCM0plus.h
- * @brief    CMSIS Core Peripheral Access Layer Header File for
- *           ARMCM0plus Device
+ * @brief    CMSIS-Core(M) Device Header File for Device ARMCM0plus
+ *
  * @version  V5.3.2
- * @date     01. May 2023
+ * @date     18. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -91,10 +91,10 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __CM0PLUS_REV             0x0001U   /* Core revision r0p1 */
-#define __MPU_PRESENT             0U        /* no MPU present */
-#define __VTOR_PRESENT            0U        /* no VTOR present */
 #define __NVIC_PRIO_BITS          2U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
+#define __VTOR_PRESENT            0U        /* no VTOR present */
+#define __MPU_PRESENT             0U        /* no MPU present */
 
 #include "core_cm0plus.h"                   /* Processor and core peripherals */
 #include "system_ARMCM0plus.h"              /* System Header */
