@@ -1,12 +1,12 @@
-/*************************************************************************//**
+/**************************************************************************//**
  * @file     <Device>.h
- * @brief    CMSIS-Core(M) Device Peripheral Access Layer Header File for
- *           Device <Device>
+ * @brief    CMSIS-Core(M) Device Header File for Device <Device>
+ *
  * @version  V1.0.0
- * @date     20. January 2021
- *****************************************************************************/
+ * @date     18. July 2023
+ ******************************************************************************/
 /*
- * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -23,7 +23,7 @@
  * limitations under the License.
  */
 
-#ifndef <Device>_H      /* ToDo: Replace '<Device>' with your device name */
+#ifndef <Device>_H      /* ToDo: replace '<Device>' with your device name */
 #define <Device>_H
 
 #ifdef __cplusplus
@@ -39,7 +39,7 @@ typedef enum IRQn
 {
 /* ================     Cortex-M Core Exception Numbers     ================ */
 
-/* ToDo: Add Cortex exception numbers according the used Cortex-Core */
+/* ToDo: add Cortex exception numbers according the used Cortex-Core */
   Reset_IRQn             = -15,  /*  1 Reset Vector
                                        invoked on Power up and warm reset */
   NonMaskableInt_IRQn    = -14,  /*  2 Non maskable Interrupt
@@ -95,9 +95,9 @@ typedef enum IRQn
 #endif
 
 
-/* ================    Configuration of Core Peripherals    ================ */
-/* ToDo: Set the defines according your Device */
-/* ToDo: Define the correct core revision
+/* --------  Configuration of Core Peripherals  ----------------------------------- */
+/* ToDo: set the defines according your Device */
+/* ToDo: define the correct core revision
          valid CMSIS core revision macro names are:
            __CM0_REV, __CM0PLUS_REV, __CM1_REV, __CM3_REV, __CM4_REV, __CM7_REV
            __CM23_REV, __CM33_REV, __CM35P_REV, __CM55_REV
@@ -119,13 +119,13 @@ typedef enum IRQn
 #define __DTCM_PRESENT          0U       /* Set to 1 if DTCM is present */
 
 
-/* ToDo: Include the CMSIS core header file according your device.
+/* ToDo: include the CMSIS core header file according your device.
          valid CMSIS core header files are:
            core_cm0.h, core_cm0plus.h, core_cm1.h, core_cm3.h, core_cm4.h, core_cm7.h
            core_cm23.h, core_cm33.h, core_cm35p.h, core_cm55.h
            core_sc000.h, core_sc300.h */
 #include <core_cm#.h>                           /* Processor and core peripherals */
-/* ToDo: Include your system_<Device>.h file
+/* ToDo: include your system_<Device>.h file
          replace '<Device>' with your device name */
 #include "system_<Device>.h"                    /* System Header */
 
@@ -136,7 +136,7 @@ typedef enum IRQn
 /* ========================================================================= */
 
 
-/* ToDo: Add here your device specific peripheral access structure typedefs
+/* ToDo: add here your device specific peripheral access structure typedefs
          including bit definitions for Pos/Msk macros
          following is an example for a timer */
 
@@ -146,13 +146,13 @@ typedef enum IRQn
 
 typedef struct
 {
-  __IOM  uint32_t  LOAD;                 /* Offset: 0x000 (R/W) Load Register */
-  __IM   uint32_t  VALUE;                /* Offset: 0x004 (R/ ) Value Register */
-  __IOM  uint32_t  CONTROL;              /* Offset: 0x008 (R/W) Control Register */
-  __OM   uint32_t  INTCLR;               /* Offset: 0x00C ( /W) Clear Interrupt Register */
-  __IM   uint32_t  RIS;                  /* Offset: 0x010 (R/ ) Raw Interrupt Status Register */
-  __IM   uint32_t  MIS;                  /* Offset: 0x014 (R/ ) Interrupt Status Register */
-  __IOM  uint32_t  BGLOAD;               /* Offset: 0x018 (R/W) Background Load Register */
+  __IOM uint32_t  LOAD;                 /* Offset: 0x000 (R/W) Load Register */
+  __IM  uint32_t  VALUE;                /* Offset: 0x004 (R/ ) Value Register */
+  __IOM uint32_t  CONTROL;              /* Offset: 0x008 (R/W) Control Register */
+  __OM  uint32_t  INTCLR;               /* Offset: 0x00C ( /W) Clear Interrupt Register */
+  __IM  uint32_t  RIS;                  /* Offset: 0x010 (R/ ) Raw Interrupt Status Register */
+  __IM  uint32_t  MIS;                  /* Offset: 0x014 (R/ ) Interrupt Status Register */
+  __IOM uint32_t  BGLOAD;               /* Offset: 0x018 (R/W) Background Load Register */
 } <DeviceAbbreviation>_TMR_TypeDef;
 
 /* <DeviceAbbreviation>_TMR LOAD Register Definitions */
@@ -172,7 +172,7 @@ typedef struct
 
 
 
-/* ================  End of section using anonymous unions  ================ */
+/* --------  End of section using anonymous unions and disabling warnings  -------- */
 #if   defined (__CC_ARM)
   #pragma pop
 #elif defined (__ICCARM__)
@@ -197,7 +197,7 @@ typedef struct
 /* ========================================================================= */
 
 
-/* ToDo: Add here your device peripherals base addresses
+/* ToDo: add here your device peripherals base addresses
          following is an example for timer */
 
 /* Peripheral and SRAM base address */

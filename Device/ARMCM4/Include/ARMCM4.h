@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @file     ARMCM4.h
- * @brief    CMSIS Core Peripheral Access Layer Header File for
- *           ARMCM4 Device (configured for CM4 without FPU)
+ * @brief    CMSIS-Core(M) Device Header File for Device ARMCM4
+ *           (FPU, DSP extension)
  * @version  V6.0.0
- * @date     01. May 2023
+ * @date     18. July 2023
  ******************************************************************************/
 /*
  * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
@@ -91,11 +91,12 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __CM4_REV                 0x0001U   /* Core revision r0p1 */
-#define __MPU_PRESENT             1U        /* MPU present */
-#define __VTOR_PRESENT            1U        /* VTOR present */
 #define __NVIC_PRIO_BITS          3U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
+#define __VTOR_PRESENT            1U        /* VTOR present */
+#define __MPU_PRESENT             1U        /* MPU present */
 #define __FPU_PRESENT             1U        /* FPU present */
+#define __DSP_PRESENT             1U        /* DSP extension present */
 
 #include "core_cm4.h"                       /* Processor and core peripherals */
 #include "system_ARMCM4.h"                  /* System Header */

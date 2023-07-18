@@ -1,13 +1,12 @@
 /**************************************************************************//**
  * @file     ARMCM55.h
- * @brief    CMSIS Core Peripheral Access Layer Header File for
- *           ARMCM55 Device Series (configured for ARMCM55 with double precision FPU,
- *                                  DSP extension, MVE, TrustZone)
+ * @brief    CMSIS-Core(M) Device Header File for Device ARMCM55
+ *           (double precision FPU, DSP extension, MVE, TrustZone)
  * @version  V1.0.1
- * @date     01. May 2023
+ * @date     18. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -43,7 +42,7 @@ typedef enum IRQn
   BusFault_IRQn                 = -11,     /*  5 Bus Fault Interrupt */
   UsageFault_IRQn               = -10,     /*  6 Usage Fault Interrupt */
   SecureFault_IRQn              =  -9,     /*  7 Secure Fault Interrupt */
-  SVCall_IRQn                   =  -5,     /* 11 SVC Interrupt */
+  SVCall_IRQn                   =  -5,     /* 11 SV Call Interrupt */
   DebugMonitor_IRQn             =  -4,     /* 12 Debug Monitor Interrupt */
   PendSV_IRQn                   =  -2,     /* 14 Pend SV Interrupt */
   SysTick_IRQn                  =  -1,     /* 15 System Tick Interrupt */

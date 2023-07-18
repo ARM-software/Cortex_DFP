@@ -1,12 +1,12 @@
 /**************************************************************************//**
  * @file     ARMCM3.h
- * @brief    CMSIS Core Peripheral Access Layer Header File for
- *           ARMCM3 Device
+ * @brief    CMSIS-Core(M) Device Header File for Device ARMCM3
+ *
  * @version  V5.3.2
- * @date     01. May 2023
+ * @date     18. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -91,10 +91,10 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __CM3_REV                 0x0201U   /* Core revision r2p1 */
-#define __MPU_PRESENT             1U        /* MPU present */
-#define __VTOR_PRESENT            1U        /* VTOR present */
 #define __NVIC_PRIO_BITS          3U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
+#define __VTOR_PRESENT            1U        /* VTOR present */
+#define __MPU_PRESENT             1U        /* MPU present */
 
 #include "core_cm3.h"                       /* Processor and core peripherals */
 #include "system_ARMCM3.h"                  /* System Header */

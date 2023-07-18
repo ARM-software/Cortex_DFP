@@ -1,12 +1,12 @@
 /**************************************************************************//**
  * @file     ARMSC000.h
- * @brief    CMSIS Core Peripheral Access Layer Header File for
- *           ARMSC000 Device
+ * @brief    CMSIS-Core(M) Device Header File for Device ARMSC000
+ *
  * @version  V5.3.2
- * @date     10. Jan 2020
+ * @date     18. July 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+ * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -41,9 +41,9 @@ typedef enum IRQn
 
 
 
-  SVCall_IRQn                   =  -5,     /* 11 SVC Interrupt */
+  SVCall_IRQn                   =  -5,     /* 11 SV Call Interrupt */
 
-  PendSV_IRQn                   =  -2,     /* 14 PendSV Interrupt */
+  PendSV_IRQn                   =  -2,     /* 14 Pend SV Interrupt */
   SysTick_IRQn                  =  -1,     /* 15 System Tick Interrupt */
 
 /* -------------------  Processor Interrupt Numbers  ------------------------------ */
@@ -56,8 +56,9 @@ typedef enum IRQn
   Interrupt6_IRQn               =   6,
   Interrupt7_IRQn               =   7,
   Interrupt8_IRQn               =   8,
-  Interrupt9_IRQn               =   9
-  /* Interrupts 10 .. 31 are left out */
+  Interrupt9_IRQn               =   9,
+  /* Interrupts 10 .. 30 are left out */
+  Interrupt31_IRQn              =   31
 } IRQn_Type;
 
 
@@ -90,10 +91,10 @@ typedef enum IRQn
 
 /* --------  Configuration of Core Peripherals  ----------------------------------- */
 #define __SC000_REV               0x0000U   /* Core revision r0p0 */
-#define __MPU_PRESENT             1U        /* MPU present */
-#define __VTOR_PRESENT            0U        /* no VTOR present*/
 #define __NVIC_PRIO_BITS          2U        /* Number of Bits used for Priority Levels */
 #define __Vendor_SysTickConfig    0U        /* Set to 1 if different SysTick Config is used */
+#define __VTOR_PRESENT            0U        /* no VTOR present*/
+#define __MPU_PRESENT             1U        /* MPU present */
 
 #include "core_sc000.h"                     /* Processor and core peripherals */
 #include "system_ARMSC000.h"                /* System Header */
