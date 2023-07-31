@@ -16,336 +16,364 @@
   <devices>
     <!-- ******************************  Cortex-M0  ****************************** -->
     <family Dfamily="ARM Cortex M0" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui0497" title="Cortex-M0 Processor Devices Generic Users Guide"/>
       <description>
-The Cortex-M0 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications. It offers significant benefits to developers, including:
+The Cortex-M0 processor is an entry-level 32-bit ARM Cortex processor designed for a broad range of embedded applications.
+It offers significant benefits to developers, including:
 - simple, easy-to-use programmers model
 - highly efficient ultra-low power operation
 - excellent code density
 - deterministic, high-performance interrupt handling
-- upward compatibility with the rest of the Cortex-M processor family.
+- upward compatibility with the rest of the Cortex-M processor family
       </description>
-      <!-- debug svd="SVD/ARMCM0.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui0497" title="Cortex-M0 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM0">
         <processor Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM0/Include/ARMCM0.h" define="ARMCM0"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M0P  ****************************** -->
     <family Dfamily="ARM Cortex M0 plus" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui0662" title="Cortex-M0+ Processor Devices Generic Users Guide"/>
       <description>
-The Cortex-M0+ processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications. It offers significant benefits to developers, including:
-- simple, easy-to-use programmers model
-- highly efficient ultra-low power operation
-- excellent code density
-- deterministic, high-performance interrupt handling
-- upward compatibility with the rest of the Cortex-M processor family.
+The Cortex-M0+ processor is an entry-level 32-bit ARM Cortex processor designed for a broad range of embedded applications.
+It offers significant benefits to developers, including:
+- A simple architecture that is easy to learn and program
+- Ultra-low power, energy-efficient operation
+- Excellent code density
+- Deterministic, high-performance interrupt handling
+- Upward compatibility with Cortex-M processor family
+- Platform security robustness, with optional integrated Memory Protection Unit (MPU)
       </description>
-      <!-- debug svd="SVD/ARMCM0P.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui0662" title="Cortex-M0+ Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM0P">
         <processor Dcore="Cortex-M0+" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM0plus/Include/ARMCM0plus.h" define="ARMCM0P"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M1  ****************************** -->
     <family Dfamily="ARM Cortex M1" Dvendor="ARM:82">
-      <!--book name="https://developer.arm.com/documentation/dui0497" title="Cortex-M0 Processor Devices Generic Users Guide"/-->
       <description>
 The ARM Cortex-M1 FPGA processor is intended for deeply embedded applications that require a small processor integrated into an FPGA.
 The ARM Cortex-M1 processor implements the ARMv6-M architecture profile.
       </description>
-      <!-- debug svd="SVD/ARMCM0.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <!--book name="https://developer.arm.com/documentation/??" title="Cortex-M1 Processor Devices Generic Users Guide"/-->
 
       <device Dname="ARMCM1">
         <processor Dcore="Cortex-M1" DcoreVersion="r1p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM1/Include/ARMCM1.h" define="ARMCM1"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M3  ****************************** -->
     <family Dfamily="ARM Cortex M3" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui0552" title="Cortex-M3 Processor Devices Generic Users Guide"/>
       <description>
-The Cortex-M3 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications. It offers significant benefits to developers, including:
-- simple, easy-to-use programmers model
-- highly efficient ultra-low power operation
-- excellent code density
-- deterministic, high-performance interrupt handling
-- upward compatibility with the rest of the Cortex-M processor family.
+The Cortex-M3 processor is a high performance 32-bit processor designed for the microcontroller market.
+It offers significant benefits to developers, including:
+- outstanding processing performance combined with fast interrupt handling
+- enhanced system debug with extensive breakpoint and trace capabilities
+- efficient processor core, system and memories
+- ultra-low power consumption with integrated sleep mode and an optional deep sleep mode
+- platform security robustness, with an optional integrated Memory Protection Unit (MPU)
       </description>
-      <!-- debug svd="SVD/ARMCM3.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui0552" title="Cortex-M3 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM3">
         <processor Dcore="Cortex-M3" DcoreVersion="r2p1" Dfpu="NO_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM3/Include/ARMCM3.h" define="ARMCM3"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M4  ****************************** -->
     <family Dfamily="ARM Cortex M4" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui0553" title="Cortex-M4 Processor Devices Generic Users Guide"/>
       <description>
-The Cortex-M4 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications. It offers significant benefits to developers, including:
-- simple, easy-to-use programmers model
-- highly efficient ultra-low power operation
-- excellent code density
-- deterministic, high-performance interrupt handling
-- upward compatibility with the rest of the Cortex-M processor family.
+The Cortex-M4 processor is a high performance 32-bit processor designed for the microcontroller market.
+It offers significant benefits to developers, including:
+- outstanding processing performance combined with fast interrupt handling
+- enhanced system debug with extensive breakpoint and trace capabilities
+- efficient processor core, system and memories
+- ultra-low power consumption with integrated sleep mode and an optional deep sleep mode
+- platform security robustness, with optional integrated Memory Protection Unit (MPU)
       </description>
-      <!-- debug svd="SVD/ARMCM4.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui0553" title="Cortex-M4 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM4">
         <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Dfpu="SP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM4/Include/ARMCM4.h"    define="ARMCM4"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M7  ****************************** -->
     <family Dfamily="ARM Cortex M7" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui0646" title="Cortex-M7 Processor Devices Generic Users Guide"/>
       <description>
-The Cortex-M7 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications. It offers significant benefits to developers, including:
-- simple, easy-to-use programmers model
-- highly efficient ultra-low power operation
-- excellent code density
-- deterministic, high-performance interrupt handling
-- upward compatibility with the rest of the Cortex-M processor family.
+The Cortex-M7 processor is a high performance 32-bit processor designed for the microcontroller market.
+It offers significant benefits to developers, including:
+- Outstanding processing performance combined with fast interrupt handling
+- Enhanced system debug with extensive breakpoint and trace capabilities
+- Efficient processor core, system and memories
+- Ultra-low power consumption with integrated sleep mode and an optional deep sleep mode
+- Platform security robustness, with optional integrated Memory Protection Unit (MPU)
       </description>
-      <!-- debug svd="SVD/ARMCM7.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui0646" title="Cortex-M7 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM7">
         <processor Dcore="Cortex-M7" DcoreVersion="r0p0" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM7/Include/ARMCM7.h" define="ARMCM7"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M23  ********************** -->
     <family Dfamily="ARM Cortex M23" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/dui1095"       title="Cortex-M23 Processor Devices Generic Users Guide"/>
       <description>
-The Arm Cortex-M23 is based on the Armv8-M baseline architecture.
-It is the smallest and most energy efficient Arm processor with Arm TrustZone technology.
-Cortex-M23 is the ideal processor for constrained embedded applications requiring efficient security.
+The Cortex-M23 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of embedded applications.
+It offers significant benefits to developers, including:
+- A simple architecture that is easy to learn and program
+- Ultra-low power, energy-efficient operation
+- Excellent code density
+- Deterministic, high-performance interrupt handling
+- Upward compatibility with Cortex-M processor family
+- Platform security robustness, with optional integrated memory protection
+- Extended security features, with optional Security Extension for Armv8-M
       </description>
-      <!-- debug svd="SVD/ARMCM23.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00200000" startup="1" default="1"/>
-      <memory id="IROM2"                                start="0x00200000" size="0x00200000" startup="0" default="0"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <memory id="IRAM2"                                start="0x20200000" size="0x00020000" init   ="0" default="0"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/dui1095" title="Cortex-M23 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM23">
         <processor Dcore="Cortex-M23" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="MPU" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM23/Include/ARMCM23.h" define="ARMCM23"/>
-      </device>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
+     </device>
     </family>
 
     <!-- ******************************  Cortex-M33  ****************************** -->
     <family Dfamily="ARM Cortex M33" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/100235"       title="Cortex-M33 Processor Devices Generic Users Guide"/>
       <description>
-The Arm Cortex-M33 is the most configurable of all Cortex-M processors. It is a full featured microcontroller
-class processor based on the Armv8-M mainline architecture with Arm TrustZone security.
+The Cortex®-M33 processor is a high-performance 32-bit processor that is designed for the microcontroller market.
+The processor offers outstanding performance, fast interrupt handling, and enhanced system debug with extensive breakpoint and trace capabilities.
+Other significant benefits to developers include:
+- Efficient processor core, system, and memories
+- Instruction set extension for signal processing applications
+- Ultra-low power consumption with integrated sleep modes
+- Platform robustness with optional integrated memory protection
+- Extended security features with optional Security Extension for Armv8-M
       </description>
-      <!-- debug svd="SVD/ARMCM33.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00200000" startup="1" default="1"/>
-      <memory id="IROM2"                                start="0x00200000" size="0x00200000" startup="0" default="0"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <memory id="IRAM2"                                start="0x20200000" size="0x00020000" init   ="0" default="0"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"          default="1"/-->
+
+      <book name="https://developer.arm.com/documentation/100235" title="Cortex-M33 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM33">
         <processor Dcore="Cortex-M33" DcoreVersion="r0p0" Dfpu="SP_FPU" Dmpu="MPU" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM33/Include/ARMCM33.h" define="ARMCM33"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M35P  ****************************** -->
     <family Dfamily="ARM Cortex M35P" Dvendor="ARM:82">
-      <!--book name="Device/ARM/Documents/??_dgug.pdf"       title="?? Device Generic Users Guide"/-->
       <description>
 The Arm Cortex-M35P is the most configurable of all Cortex-M processors. It is a full featured microcontroller
 class processor based on the Armv8-M mainline architecture with Arm TrustZone security designed for a broad range of secure embedded applications.
       </description>
 
-      <!-- debug svd="SVD/ARMCM35P.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00200000" startup="1" default="1"/>
-      <memory id="IROM2"                                start="0x00200000" size="0x00200000" startup="0" default="0"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <memory id="IRAM2"                                start="0x20200000" size="0x00020000" init   ="0" default="0"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"          default="1"/-->
+      <!--book name="https://developer.arm.com/documentation/??" title="Cortex M35P Processor Devices Generic Users Guide"/-->
 
       <device Dname="ARMCM35P">
         <processor Dcore="Cortex-M35P" DcoreVersion="r0p0" Dfpu="SP_FPU" Dmpu="MPU" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM35P/Include/ARMCM35P.h" define="ARMCM35P"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M55  ****************************** -->
     <family Dfamily="ARM Cortex M55" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/101273"       title="Cortex-M55 Processor Devices Generic Users Guide"/>
       <description>
-The Arm Cortex-M55 processor is a fully synthesizable, mid-range, microcontroller-class processor that implements the Armv8.1-M mainline architecture and includes support for the M-profile Vector Extension (MVE), also known as Arm Helium technology.
-It is Arm's most AI-capable Cortex-M processor, delivering enhanced, energy-efficient digital signal processing (DSP) and machine learning (ML) performance.
-The Cortex-M55 processor achieves high compute performance across scalar and vector operations, while maintaining low energy consumption.
+The Cortex-M55 processor is a fully synthesizeable mid-range processor that is designed for the microcontroller market.
+The processor offers high compute performance across both scalar and vector operations with low power consumption, fast interrupt handling, and optional enhanced system debug with extensive breakpoint and trace capabilities.
+Other significant benefits to developers include:
+- Efficient processor core, system, and memories
+- Instruction set extension for Digital Signal Processing (DSP) and Machine Learning applications
+- Ultra-low power consumption with integrated sleep modes
+- Platform robustness with optional integrated memory protection
+- Extended security features with optional Security Extension
+- Extended vector processing functionality with optional Armv8.1-M M-profile Vector Extension (MVE). Armv8.1-M MVE is also referred to as Arm Helium technology.
+- Support for Custom Datapath Extension (CDE), which adds classes of Arm Custom Instructions (ACIs) in the coprocessor instruction space.
       </description>
 
-      <!-- debug svd="SVD/ARMCM55.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x10000000" size="0x00200000" startup="1" default="1"/>
-      <memory id="IROM2"                                start="0x00000000" size="0x00200000" startup="0" default="0"/>
-      <memory id="IRAM1"                                start="0x30000000" size="0x00020000" init   ="0" default="1"/>
-      <memory id="IRAM2"                                start="0x20000000" size="0x00020000" init   ="0" default="0"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+      <book name="https://developer.arm.com/documentation/101273"       title="Cortex-M55 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM55">
         <processor Dcore="Cortex-M55" DcoreVersion="r0p0" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM55/Include/ARMCM55.h" define="ARMCM55"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-M85  ****************************** -->
     <family Dfamily="ARM Cortex M85" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/1019283"       title="Cortex-M85 Processor Devices Generic Users Guide"/>
       <description>
-The Arm Cortex-M85 processor is a fully synthesizable high-performance microcontroller class processor that implements the Armv8.1-M Mainline architecture which includes support for the M-profile Vector Extension (MVE).
-The processor also supports previous Armv8-M architectural features.
-The design is focused on compute applications such as Digital Signal Processing (DSP) and machine learning.
-The Arm Cortex-M85 processor is energy efficient and achieves high compute performance across scalar and vector operations while maintaining low power consumption.
+The Cortex-M85 processor is a fully synthesizeable high-performance processor that is designed for the microcontroller market.
+The processor offers high compute performance across both scalar and vector operations with low power consumption, fast interrupt handling, and optional enhanced system debug with extensive breakpoint and trace capabilities.
+Other significant benefits to developers include:
+- Efficient processor core, system, and memories.
+- Instruction set extension for Digital Signal Processing (DSP) and Machine Learning applications.
+- Ultra-low power consumption with integrated sleep modes.
+- Platform robustness with optional integrated memory protection.
+- Extended security features through the included Security Extension.
+- Extended vector processing functionality with optional Armv8.1-M M-profile Vector Extension (MVE). Armv8.1-M MVE is also referred to as Arm Helium technology .
       </description>
 
-      <!-- debug svd="SVD/ARMCM85.svd"/ SVD files do not contain any peripheral -->
-      <memory name="ROM_NS" access="rxn"  start="0x00000000" size="0x00200000" startup="1" default="1" alias="ROM_S"/>
-      <memory name="RAM_NS" access="rwxn" start="0x20000000" size="0x00020000" init   ="0" default="1" alias="RAM_S"/>
-      <memory name="ROM_S"  access="rxn"  start="0x10000000" size="0x00200000" startup="1" default="1"/>
-      <memory name="RAM_S"  access="rwxn" start="0x30000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
+      <book name="https://developer.arm.com/documentation/1019283"       title="Cortex-M85 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM85">
         <processor Dcore="Cortex-M85" DcoreVersion="r0p0" Dpacbti="PACBTI" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM85/Include/ARMCM85.h" define="ARMCM85"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  ARMSC000  ****************************** -->
     <family Dfamily="ARM SC000" Dvendor="ARM:82">
       <description>
-The Arm SC000 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of secure embedded applications. It offers significant benefits to developers, including:
+The Arm SC000 processor is an entry-level 32-bit Arm Cortex processor designed for a broad range of secure embedded applications.
+It offers significant benefits to developers, including:
 - simple, easy-to-use programmers model
 - highly efficient ultra-low power operation
 - excellent code density
 - deterministic, high-performance interrupt handling
       </description>
-      <!-- debug svd="SVD/ARMSC000.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
 
       <device Dname="ARMSC000">
         <processor Dcore="SC000" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMSC000/Include/ARMSC000.h" define="ARMSC000"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  ARMSC300  ****************************** -->
     <family Dfamily="ARM SC300" Dvendor="ARM:82">
       <description>
-The ARM SC300 processor is an entry-level 32-bit ARM Cortex processor designed for a broad range of secure embedded applications. It offers significant benefits to developers, including:
+The ARM SC300 processor is an entry-level 32-bit ARM Cortex processor designed for a broad range of secure embedded applications.
+It offers significant benefits to developers, including:
 - simple, easy-to-use programmers model
 - highly efficient ultra-low power operation
 - excellent code density
 - deterministic, high-performance interrupt handling
       </description>
-      <!-- debug svd="SVD/ARMSC300.svd"/ SVD files do not contain any peripheral -->
-      <memory id="IROM1"                                start="0x00000000" size="0x00040000" startup="1" default="1"/>
-      <memory id="IRAM1"                                start="0x20000000" size="0x00020000" init   ="0" default="1"/>
-      <!--algorithm name="Device/ARM/Flash/NEW_DEVICE.FLM" start="0x00000000" size="0x00040000"             default="1"/-->
 
       <device Dname="ARMSC300">
         <processor Dcore="SC300" DcoreVersion="r0p1" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMSC300/Include/ARMSC300.h" define="ARMSC300"/>
+
+        <memory name="ROM" access="rx"  start="0x00000000" size="0x00040000" default="1" startup="1"/>
+        <memory name="RAM" access="rwx" start="0x20000000" size="0x00020000" default="1"/>
       </device>
     </family>
 
     <!-- ******************************  Cortex-A5  ****************************** -->
     <family Dfamily="ARM Cortex A5" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/ddi0433" title="Cortex-A5 Technical Reference Manual"/>
       <description>
-The Arm Cortex-A5 processor is a high-performance, low-power, Arm macrocell with an L1 cache subsystem that provides full
-virtual memory capabilities. The Cortex-A5 processor implements the Armv7-A architecture profile and can execute 32-bit
-Arm instructions and 16-bit and 32-bit Thumb instructions. The Cortex-A5 is the smallest member of the Cortex-A processor family.
+The Arm Cortex-A5 processor is a high-performance, low-power, Arm macrocell with an L1 cache subsystem that provides full virtual memory capabilities.
+The Cortex-A5 processor implements the Armv7-A architecture profile and can execute 32-bit Arm instructions and 16-bit and 32-bit Thumb instructions.
+The Cortex-A5 is the smallest member of the Cortex-A processor family.
       </description>
 
-      <memory id="IROM1"                                start="0x00000000" size="0x04000000" startup="1" default="1"/> <!-- 64MB NOR -->
-      <memory id="IROM2"                                start="0x0C000000" size="0x04000000" startup="0" default="0"/> <!-- 64MB NOR -->
-      <memory id="IRAM1"                                start="0x14000000" size="0x02000000" init   ="0" default="1"/> <!-- 32MB SRAM -->
-      <memory id="IRAM2"                                start="0x80000000" size="0x40000000" init   ="0" default="0"/> <!-- 1GB DRAM -->
+      <book name="https://developer.arm.com/documentation/ddi0433" title="Cortex-A5 Technical Reference Manual"/>
 
       <device Dname="ARMCA5">
         <processor Dcore="Cortex-A5" DcoreVersion="r0p1" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
         <compile header="Device/ARMCA5/Include/ARMCA5.h" define="ARMCA5"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
       </device>
     </family>
 
     <!-- ******************************  Cortex-A7  ****************************** -->
     <family Dfamily="ARM Cortex A7" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/ddi0464" title="Cortex-A7 MPCore Technical Reference Manual"/>
       <description>
 The Cortex-A7 MPCore processor is a high-performance, low-power processor that implements the Armv7-A architecture.
-The Cortex-A7 MPCore processor has one to four processors in a single multiprocessor device with a L1 cache subsystem,
-an optional integrated GIC, and an optional L2 cache controller.
+The Cortex-A7 MPCore processor has one to four processors in a single multiprocessor device with a L1 cache subsystem, an optional integrated GIC, and an optional L2 cache controller.
       </description>
 
-      <memory id="IROM1"                                start="0x00000000" size="0x04000000" startup="1" default="1"/> <!-- 64MB NOR -->
-      <memory id="IROM2"                                start="0x0C000000" size="0x04000000" startup="0" default="0"/> <!-- 64MB NOR -->
-      <memory id="IRAM1"                                start="0x14000000" size="0x02000000" init   ="0" default="1"/> <!-- 32MB SRAM -->
-      <memory id="IRAM2"                                start="0x80000000" size="0x40000000" init   ="0" default="0"/> <!-- 1GB DRAM -->
+      <book name="https://developer.arm.com/documentation/ddi0464" title="Cortex-A7 MPCore Technical Reference Manual"/>
 
       <device Dname="ARMCA7">
         <processor Dcore="Cortex-A7" DcoreVersion="r0p5" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
         <compile header="Device/ARMCA7/Include/ARMCA7.h" define="ARMCA7"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
       </device>
     </family>
 
     <!-- ******************************  Cortex-A9  ****************************** -->
     <family Dfamily="ARM Cortex A9" Dvendor="ARM:82">
-      <book name="https://developer.arm.com/documentation/100511" title="Cortex-A9 Technical Reference Manual"/>
       <description>
 The Cortex-A9 processor is a high-performance, low-power, Arm macrocell with an L1 cache subsystem that provides full virtual memory capabilities.
-The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm instructions, 16-bit and 32-bit Thumb instructions,
-and 8-bit Java bytecodes in Jazelle state.
+The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm instructions, 16-bit and 32-bit Thumb instructions, and 8-bit Java bytecodes in Jazelle state.
       </description>
 
-      <memory id="IROM1"                                start="0x00000000" size="0x04000000" startup="1" default="1"/> <!-- 64MB NOR -->
-      <memory id="IROM2"                                start="0x0C000000" size="0x04000000" startup="0" default="0"/> <!-- 64MB NOR -->
-      <memory id="IRAM1"                                start="0x14000000" size="0x02000000" init   ="0" default="1"/> <!-- 32MB SRAM -->
-      <memory id="IRAM2"                                start="0x80000000" size="0x40000000" init   ="0" default="0"/> <!-- 1GB DRAM -->
+      <book name="https://developer.arm.com/documentation/100511" title="Cortex-A9 Technical Reference Manual"/>
 
       <device Dname="ARMCA9">
         <processor Dcore="Cortex-A9" DcoreVersion="r4p1" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
         <compile header="Device/ARMCA9/Include/ARMCA9.h" define="ARMCA9"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
       </device>
     </family>
   </devices>
