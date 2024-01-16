@@ -1,15 +1,14 @@
 # Cortex_DFP
 
-This repository contains a CMSIS Device Family Pack with Arm pseudo devices
-that can be used for generic software projects or for validation with 
-simulation models.
+This repository contains a CMSIS Device Family Pack with Arm Cortex reference subsystems
+that can be used for generic software projects or for validation with simulation models.
 
 ## Repository toplevel structure
 
 ```txt
     📦
     ┣ 📂 .github          GitHub Action workflow and configuration
-    ┣ 📂 Devices          Device header and startup code for Arm pseudo devices
+    ┣ 📂 Devices          Device header and startup code for Arm reference devices
     ┗ 📂 SVD              System Viewer Description files
 ```
 
