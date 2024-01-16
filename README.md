@@ -1,4 +1,4 @@
-# CMSIS-DFP
+# Cortex_DFP
 
 This repository contains a CMSIS Device Family Pack with Arm pseudo devices
 that can be used for generic software projects or for validation with 
@@ -22,7 +22,7 @@ Some helper scripts are provided to generate the release artifacts from this rep
 The CMSIS-Pack bundle can be generated with
 
 ```sh
-CMSIS-DFP $ ./gen_pack.sh
+Cortex_DFP $ ./gen_pack.sh
 ```
 
 Prerequisites for this script to succeed are:
