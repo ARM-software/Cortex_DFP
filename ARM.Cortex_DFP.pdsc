@@ -414,6 +414,105 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
         <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
       </device>
     </family>
+
+    <!-- ******************************  Cortex-A53  ****************************** -->
+    <family Dfamily="ARM Cortex A53" Dvendor="ARM:82">
+      <description>
+The Cortex-A53 processor is a high efficiency processor that implements the Armv8-A architecture.
+The Cortex-A53 processor has one to four cores, each with an L1 memory system and a single shared L2 cache. It can be combined with other Cortex-A CPUs in a big.LITTLE configuration.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/ddi0500" title="Cortex-A53 Technical Reference Manual"/>
+
+      <device Dname="ARMCA53">
+        <processor Dcore="Cortex-A53" DcoreVersion="r0p4" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCA53/Include/ARMCA53.h" define="ARMCA53"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-R4  ****************************** -->
+    <family Dfamily="ARM Cortex R4" Dvendor="ARM:82">
+      <description>
+The Arm Cortex-R4 processor is the smallest deeply embedded real-time processor based on the Armv7-R architecture.
+The Cortex-R4 processor delivers high-performance, real-time responsiveness, reliability, and dependability. It offers excellent energy efficiency and cost effectiveness for ASIC, ASSP, and MCU embedded applications.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/ddi0363" title="Cortex-R4 Technical Reference Manual"/>
+
+      <device Dname="ARMCR4">
+        <processor Dcore="Cortex-R4" DcoreVersion="r1p4" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCR4/Include/ARMCR4.h" define="ARMCR4"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-R5  ****************************** -->
+    <family Dfamily="ARM Cortex R5" Dvendor="ARM:82">
+      <description>
+The Arm Cortex-R5 processor provides extended fault containment for real-time applications.
+The Cortex-R5 processor builds on the feature set of the Cortex-R4 with enhanced error management, extended functional safety, and SoC integration features for use in deeply embedded real-time and safety-critical systems.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/ddi0460" title="Cortex-R5 Technical Reference Manual"/>
+
+      <device Dname="ARMCR5">
+        <processor Dcore="Cortex-R5" DcoreVersion="r1p2" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCR5/Include/ARMCR5.h" define="ARMCR5"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-R7  ****************************** -->
+    <family Dfamily="ARM Cortex R7" Dvendor="ARM:82">
+      <description>
+The Cortex-R7 processor features an 11-stage, superscalar, out-of-order pipeline with dynamic and static branch prediction, dynamic register re-naming and non-blocking Load-Store Unit. There is also an integrated Generic Interrupt Controller (GIC), Snoop Control Unit (SCU) and timers to further reduce latency and enable symmetric multiprocessing in a dual core configuration. 
+      </description>
+
+      <book name="https://developer.arm.com/documentation/ddi0458" title="Cortex-R7 Technical Reference Manual"/>
+
+      <device Dname="ARMCR7">
+        <processor Dcore="Cortex-R7" DcoreVersion="r0p1" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCR7/Include/ARMCR7.h" define="ARMCR7"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-R8  ****************************** -->
+    <family Dfamily="ARM Cortex R8" Dvendor="ARM:82">
+      <description>
+The Cortex-R8 processor has the highest performance in its class of real-time processors.
+It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline and superscalar out-of-order execution. The Cortex-R8 can be scaled up from single to quad-core configurations to exploit workload parallelism. Individual cores can be powered down according to workload.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/100400" title="Cortex-R8 Technical Reference Manual"/>
+
+      <device Dname="ARMCR8">
+        <processor Dcore="Cortex-R8" DcoreVersion="r0p3" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCR8/Include/ARMCR8.h" define="ARMCR8"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
   </devices>
 
   <conditions>
@@ -536,6 +635,36 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
     <condition id="ARMCA9 CMSIS">
       <description>Generic Arm Cortex-A9 device startup and depends on CMSIS Core</description>
       <require Dvendor="ARM:82" Dname="ARMCA9"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCA53 CMSIS">
+      <description>Generic Arm Cortex-A53 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCA53"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCR4 CMSIS">
+      <description>Generic Arm Cortex-R4 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCR4"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCR5 CMSIS">
+      <description>Generic Arm Cortex-R5 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCR5"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCR7 CMSIS">
+      <description>Generic Arm Cortex-R7 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCR7"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCR8 CMSIS">
+      <description>Generic Arm Cortex-R8 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCR8"/>
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
   </conditions>
@@ -772,7 +901,7 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       <description>System and Startup for Generic Arm Cortex-A7 device</description>
       <files>
         <!-- include folder / device header file -->
-        <file category="header"      name="Device/ARMCA7/Include/ARMCA7.h"/>
+        <file category="header"       name="Device/ARMCA7/Include/ARMCA7.h"/>
         <!-- startup / system / mmu files -->
         <file category="sourceC"      name="Device/ARMCA7/Source/startup_ARMCA7.c" version="1.0.1" attr="config"/>
         <file category="linkerScript" name="Device/ARMCA7/Config/ARMCA7_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
@@ -800,6 +929,70 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
         <file category="header"       name="Device/ARMCA9/Config/mem_ARMCA9.h"     version="1.1.0" attr="config"/>
       </files>
     </component>
+
+    <!-- Cortex-A53 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCA53 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-A53 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCA53/Include/ARMCA53.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCA53/Source/startup_ARMCA53.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCA53/Config/ARMCA53_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCA53/Config/ARMCA53_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCA53/Config/ARMCA53_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCA53/Source/system_ARMCA53.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCA53/Config/mem_ARMCA53.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component>
+
+    <!-- Cortex-R4 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR4 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-R4 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCR4/Include/ARMCR4.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCR4/Source/startup_ARMCR4.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCR4/Config/ARMCR4_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCR4/Config/ARMCR4_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCR4/Config/ARMCR4_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCR4/Source/system_ARMCR4.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCR4/Config/mem_ARMCR4.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component>
+
+    <!-- Cortex-R5 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR5 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-R5 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCR5/Include/ARMCR5.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCR5/Source/startup_ARMCR5.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCR5/Config/ARMCR5_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCR5/Config/ARMCR5_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCR5/Config/ARMCR5_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCR5/Source/system_ARMCR5.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCR5/Config/mem_ARMCR5.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component> 
+
+    <!-- Cortex-R7 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR7 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-R7 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCR7/Include/ARMCR7.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCR7/Source/startup_ARMCR7.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCR7/Config/ARMCR7_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCR7/Config/ARMCR7_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCR7/Config/ARMCR7_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCR7/Source/system_ARMCR7.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCR7/Config/mem_ARMCR7.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component> 
   </components>
 
 
