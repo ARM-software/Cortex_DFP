@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+<package schemaVersion="1.7.33" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.33/schema/PACK.xsd">
   <name>Cortex_DFP</name>
   <description>ARM Cortex Reference Subsystems Device Family Pack</description>
   <vendor>ARM</vendor>
@@ -227,6 +227,32 @@ class processor based on the Armv8-M mainline architecture with Arm TrustZone se
         <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
+
+    <!-- ******************************  Cortex-M55  ****************************** -->
+    <family Dfamily="ARM Cortex M52" Dvendor="ARM:82">
+      <description>
+The Cortex-M52 processor is a fully synthesizable mid-range microcontroller class processor that implements the Arm®v8.1-M Mainline architecture which includes support for the M-profile Vector Extension (MVE) and Pointer Authentication and Branch Target Identification (PACBTI) Extension.
+The processor also supports previous Arm®v8-M architectural features.
+The design is focused on compute applications such as Digital Signal Processing (DSP) and machine learning.
+The Cortex-M52 processor is energy efficient and achieves high compute performance across scalar and vector operations while maintaining low power consumption.
+The processor can be configured to include Dual Core Lockstep (DCLS) functionality, which implements a redundant copy of most of the processor logic.
+To support Arm Custom Instructions (ACIs), the processor includes optional Custom Datapath Extension (CDE) modules, which are embedded inside the logic.
+These modules are used to execute user-defined instructions that work on general-purpose integer, floating point, and MVE registers.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/102776"       title="Arm Cortex-M52 Processor Technical Reference Manual"/>
+
+      <device Dname="ARMCM52">
+        <processor Dcore="Cortex-M52" DcoreVersion="r0p2" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <compile header="Device/ARMCM52/Include/ARMCM52.h" define="ARMCM52"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
+      </device>
+    </family>
+
 
     <!-- ******************************  Cortex-M55  ****************************** -->
     <family Dfamily="ARM Cortex M55" Dvendor="ARM:82">
@@ -460,6 +486,12 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
+    <condition id="ARMCM52 CMSIS">
+      <description>Generic Arm Cortex-M52 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCM52*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
     <condition id="ARMCM55 CMSIS">
       <description>Generic Arm Cortex-M55 device startup and depends on CMSIS Core</description>
       <require Dvendor="ARM:82" Dname="ARMCM55*"/>
@@ -637,6 +669,22 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       </files>
     </component>
 
+    <!-- Cortex-M52 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="2.2.0" condition="ARMCM52 CMSIS" isDefaultVariant="true">
+      <description>System and Startup for Generic Cortex-M52 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header" name="Device/ARMCM52/Include/ARMCM52.h"/>
+        <!-- startup / system file -->
+        <file category="sourceC"      name="Device/ARMCM52/Source/startup_ARMCM52.c"             version="1.0.0" attr="config"/>
+        <file category="sourceC"      name="Device/ARMCM52/Source/system_ARMCM52.c"              version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCM52/Config/ARMCM52_ac6.sct"               version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCM52/Config/ARMCM52_gcc.ld"                version="1.0.0" attr="config" condition="GCC"/>
+        <!-- SAU configuration -->
+        <file category="header"  name="Device/ARMCM52/Config/partition_ARMCM52.h" version="1.0.0" attr="config" condition="TZ Secure"/>
+      </files>
+    </component>
+
     <!-- Cortex-M55 -->
     <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="2.2.0" condition="ARMCM55 CMSIS" isDefaultVariant="true">
       <description>System and Startup for Generic Cortex-M55 device</description>
@@ -762,6 +810,7 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM23"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM33"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM35P"/>
+      <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM52"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM55"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM85"/>
     </board>
@@ -777,6 +826,7 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM23"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM33"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM35P"/>
+      <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM52"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM55"/>
       <compatibleDevice deviceIndex="0" Dvendor="ARM:82" Dname="ARMCM85"/>
     </board>
