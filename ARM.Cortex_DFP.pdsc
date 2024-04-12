@@ -243,7 +243,7 @@ These modules are used to execute user-defined instructions that work on general
       <book name="https://developer.arm.com/documentation/102776"       title="Arm Cortex-M52 Processor Technical Reference Manual"/>
 
       <device Dname="ARMCM52">
-        <processor Dcore="Cortex-M52" DcoreVersion="r0p2" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <processor Dcore="Cortex-M52" DcoreVersion="r0p2" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Dpacbti="PACBTI" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM52/Include/ARMCM52.h" define="ARMCM52"/>
 
         <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
@@ -272,7 +272,7 @@ Other significant benefits to developers include:
       <book name="https://developer.arm.com/documentation/101273"       title="Cortex-M55 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM55">
-        <processor Dcore="Cortex-M55" DcoreVersion="r0p0" Dfpu="DP_FPU" Dmpu="MPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <processor Dcore="Cortex-M55" DcoreVersion="r1p1" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM55/Include/ARMCM55.h" define="ARMCM55"/>
 
         <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
@@ -299,7 +299,7 @@ Other significant benefits to developers include:
       <book name="https://developer.arm.com/documentation/1019283"       title="Cortex-M85 Processor Devices Generic Users Guide"/>
 
       <device Dname="ARMCM85">
-        <processor Dcore="Cortex-M85" DcoreVersion="r0p0" Dpacbti="PACBTI" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <processor Dcore="Cortex-M85" DcoreVersion="r1p0" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Dpacbti="PACBTI" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
         <compile header="Device/ARMCM85/Include/ARMCM85.h" define="ARMCM85"/>
 
         <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
