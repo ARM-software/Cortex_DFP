@@ -931,7 +931,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
     </component>
 
     <!-- Cortex-A53 -->
-    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCA53 CMSIS">
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCA53 CMSIS">
       <description>System and Startup for Generic Arm Cortex-A53 device</description>
       <files>
         <!-- include folder / device header file -->
@@ -947,7 +947,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
     </component>
 
     <!-- Cortex-R4 -->
-    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR4 CMSIS">
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCR4 CMSIS">
       <description>System and Startup for Generic Arm Cortex-R4 device</description>
       <files>
         <!-- include folder / device header file -->
@@ -963,7 +963,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
     </component>
 
     <!-- Cortex-R5 -->
-    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR5 CMSIS">
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCR5 CMSIS">
       <description>System and Startup for Generic Arm Cortex-R5 device</description>
       <files>
         <!-- include folder / device header file -->
@@ -979,7 +979,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
     </component> 
 
     <!-- Cortex-R7 -->
-    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.2.0" condition="ARMCR7 CMSIS">
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCR7 CMSIS">
       <description>System and Startup for Generic Arm Cortex-R7 device</description>
       <files>
         <!-- include folder / device header file -->
@@ -991,6 +991,22 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
         <file category="linkerScript" name="Device/ARMCR7/Config/ARMCR7_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
         <file category="sourceC"      name="Device/ARMCR7/Source/system_ARMCR7.c"  version="1.0.0" attr="config"/>
         <file category="header"       name="Device/ARMCR7/Config/mem_ARMCR7.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component> 
+
+    <!-- Cortex-R8 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCR8 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-R8 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCR8/Include/ARMCR8.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCR8/Source/startup_ARMCR8.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCR8/Config/ARMCR8_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCR8/Config/ARMCR8_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCR8/Config/ARMCR8_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCR8/Source/system_ARMCR8.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCR8/Config/mem_ARMCR8.h"     version="1.0.0" attr="config"/>
       </files>
     </component> 
   </components>
