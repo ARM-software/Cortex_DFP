@@ -34,12 +34,12 @@ void Default_Handler(void) __attribute__ ((noreturn));
 /*----------------------------------------------------------------------------
   Exception / Interrupt Handler
  *----------------------------------------------------------------------------*/
-void Undef_Handler (void) __attribute__ ((weak, alias("Default_Handler")));
-void SVC_Handler   (void) __attribute__ ((weak, alias("Default_Handler")));
-void PAbt_Handler  (void) __attribute__ ((weak, alias("Default_Handler")));
-void DAbt_Handler  (void) __attribute__ ((weak, alias("Default_Handler")));
-void IRQ_Handler   (void) __attribute__ ((weak, alias("Default_Handler")));
-void FIQ_Handler   (void) __attribute__ ((weak, alias("Default_Handler")));
+void Undef_Handler (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
+void SVC_Handler   (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
+void PAbt_Handler  (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
+void DAbt_Handler  (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
+void IRQ_Handler   (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
+void FIQ_Handler   (void) __attribute__ ((weak, noreturn, alias("Default_Handler")));
 
 /*----------------------------------------------------------------------------
   Exception / Interrupt Vector Table

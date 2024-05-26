@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.33" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.33/schema/PACK.xsd">
+<package schemaVersion="1.7.37" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.37/schema/PACK.xsd">
   <name>Cortex_DFP</name>
   <description>ARM Cortex Reference Subsystems Device Family Pack</description>
   <vendor>ARM</vendor>
@@ -415,6 +415,26 @@ The Cortex-A9 processor implements the Armv7-A architecture and runs 32-bit Arm 
       </device>
     </family>
 
+    <!-- ******************************  Cortex-A35  ****************************** -->
+    <family Dfamily="ARM Cortex A35" Dvendor="ARM:82">
+      <description>
+The Cortex-A35 processor is Arm’s most power-efficient application processor capable of seamlessly supporting 32-bit and 64-bit code.
+The Cortex-A35 processor uses a highly efficient 8-stage in-order pipeline that has been extensively optimized to provide full Armv8-A features while maximizing area and power efficiency.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/100236" title="Cortex-A35 Technical Reference Manual"/>
+
+      <device Dname="ARMCA35">
+        <processor Dcore="Cortex-A35" DcoreVersion="r1p0" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCA35/Include/ARMCA35.h" define="ARMCA35"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
     <!-- ******************************  Cortex-A53  ****************************** -->
     <family Dfamily="ARM Cortex A53" Dvendor="ARM:82">
       <description>
@@ -427,6 +447,45 @@ The Cortex-A53 processor has one to four cores, each with an L1 memory system an
       <device Dname="ARMCA53">
         <processor Dcore="Cortex-A53" DcoreVersion="r0p4" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
         <compile header="Device/ARMCA53/Include/ARMCA53.h" define="ARMCA53"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-A55  ****************************** -->
+    <family Dfamily="ARM Cortex A55" Dvendor="ARM:82">
+      <description>
+A highly power efficient mid-range application CPU built on Arm DynamIQ technology.
+The Arm Cortex-A55 processor is a CPU that delivers a combination of power efficiency and performance.  The processor is part of the first generation of application CPUs based on DynamIQ technology and features the latest Armv8-A architecture extensions, with dedicated machine learning instructions. The Cortex-A55 incorporates an extensively redesigned microarchitecture system that improves performance across the board while being very competitive in area and power efficiency. It delivers up to 18% more performance at 15% better power efficiency when compared to its predecessor, the Cortex-A53. Designed to be an extremely scalable CPU, the versatile Cortex-A55 can be used to address a wide range of applications with diverging cost, from the edge to the cloud. The Cortex-A55 can be implemented in both stand-alone applications or as a ‘LITTLE’ CPU to the Cortex-A7x series with DynamIQ big.LITTLE.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/100442" title="Cortex-A55 Technical Reference Manual"/>
+
+      <device Dname="ARMCA55">
+        <processor Dcore="Cortex-A55" DcoreVersion="r2p0" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCA55/Include/ARMCA55.h" define="ARMCA55"/>
+
+        <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
+        <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
+        <memory name="RAM1" access="rwx" start="0x14000000" size="0x02000000" default="1"/>             <!-- 32MB SRAM -->
+        <memory name="RAM2" access="rwx" start="0x80000000" size="0x40000000" default="0"/>             <!-- 1GB DRAM -->
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-A57  ****************************** -->
+    <family Dfamily="ARM Cortex A57" Dvendor="ARM:82">
+      <description>
+The Cortex-A57 processor is a high-performance processor that implements the Armv8-A architecture, which can be paired with the Cortex-A53 processor in a big.LITTLE configuration for mobile applications. The Cortex-A57 processor cluster has one to four cores, each with their L1 instruction and data caches, together with a single shared L2 unified cache.
+      </description>
+
+      <book name="https://developer.arm.com/documentation/ddi0488" title="Cortex-A57 Technical Reference Manual"/>
+
+      <device Dname="ARMCA57">
+        <processor Dcore="Cortex-A57" DcoreVersion="r1p3" Dfpu="DP_FPU" Dmpu="MPU" Dendian="Configurable" Dclock="12000000"/>
+        <compile header="Device/ARMCA57/Include/ARMCA57.h" define="ARMCA57"/>
 
         <memory name="ROM1" access="rx"  start="0x00000000" size="0x04000000" default="1" startup="1"/> <!-- 64MB NOR -->
         <memory name="ROM2" access="rx"  start="0x0C000000" size="0x04000000" default="0" startup="0"/> <!-- 64MB NOR -->
@@ -638,9 +697,27 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
+    <condition id="ARMCA35 CMSIS">
+      <description>Generic Arm Cortex-A35 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCA35"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
     <condition id="ARMCA53 CMSIS">
       <description>Generic Arm Cortex-A53 device startup and depends on CMSIS Core</description>
       <require Dvendor="ARM:82" Dname="ARMCA53"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCA55 CMSIS">
+      <description>Generic Arm Cortex-A55 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCA55"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCA57 CMSIS">
+      <description>Generic Arm Cortex-A57 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCA57"/>
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
@@ -930,6 +1007,22 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
       </files>
     </component>
 
+    <!-- Cortex-A35 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCA35 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-A35 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCA35/Include/ARMCA35.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCA35/Source/startup_ARMCA35.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCA35/Config/ARMCA35_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCA35/Config/ARMCA35_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCA35/Config/ARMCA35_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCA35/Source/system_ARMCA35.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCA35/Config/mem_ARMCA35.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component>
+
     <!-- Cortex-A53 -->
     <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCA53 CMSIS">
       <description>System and Startup for Generic Arm Cortex-A53 device</description>
@@ -943,6 +1036,38 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
         <file category="linkerScript" name="Device/ARMCA53/Config/ARMCA53_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
         <file category="sourceC"      name="Device/ARMCA53/Source/system_ARMCA53.c"  version="1.0.0" attr="config"/>
         <file category="header"       name="Device/ARMCA53/Config/mem_ARMCA53.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component>
+
+    <!-- Cortex-A55 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCA55 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-A55 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCA55/Include/ARMCA55.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCA55/Source/startup_ARMCA55.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCA55/Config/ARMCA55_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCA55/Config/ARMCA55_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCA55/Config/ARMCA55_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCA55/Source/system_ARMCA55.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCA55/Config/mem_ARMCA55.h"     version="1.0.0" attr="config"/>
+      </files>
+    </component>
+
+    <!-- Cortex-A57 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCA57 CMSIS">
+      <description>System and Startup for Generic Arm Cortex-A57 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header"       name="Device/ARMCA57/Include/ARMCA57.h"/>
+        <!-- startup / system / mmu files -->
+        <file category="sourceC"      name="Device/ARMCA57/Source/startup_ARMCA57.c" version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCA57/Config/ARMCA57_ac6.sct"   version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCA57/Config/ARMCA57_gcc.ld"    version="1.0.0" attr="config" condition="GCC"/>
+        <file category="linkerScript" name="Device/ARMCA57/Config/ARMCA57_iar.icf"   version="1.0.0" attr="config" condition="IAR"/>
+        <file category="sourceC"      name="Device/ARMCA57/Source/system_ARMCA57.c"  version="1.0.0" attr="config"/>
+        <file category="header"       name="Device/ARMCA57/Config/mem_ARMCA57.h"     version="1.0.0" attr="config"/>
       </files>
     </component>
 
@@ -992,7 +1117,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
         <file category="sourceC"      name="Device/ARMCR7/Source/system_ARMCR7.c"  version="1.0.0" attr="config"/>
         <file category="header"       name="Device/ARMCR7/Config/mem_ARMCR7.h"     version="1.0.0" attr="config"/>
       </files>
-    </component> 
+    </component>
 
     <!-- Cortex-R8 -->
     <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCR8 CMSIS">

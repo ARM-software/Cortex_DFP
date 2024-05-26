@@ -1,14 +1,14 @@
 /******************************************************************************
- * @file     system_ARMCA53.c
+ * @file     system_ARMCA55.c
  * @brief    CMSIS Device System Source File for Arm Cortex-A9 Device Series
  * @version  V1.0.0
- * @date     31. March 2024
+ * @date     26. Mau 2024
  *
  * @note
  *
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
+ * Copyright (c) 2024 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -52,6 +52,16 @@ void SystemInit (void)
 /* do not use global variables because this function is called before
    reaching pre-main. RW section may be overwritten afterwards.          */
 
+  // Invalidate entire Unified TLB
+//  __set_TLBIALL(0);
+
+  // Invalidate entire branch predictor array
+//  __set_BPIALL(0);
+  __DSB();
+  __ISB();
+
+  //  Invalidate instruction cache and flush branch target cache
+//  __set_ICIALLU(0);
   __DSB();
   __ISB();
 

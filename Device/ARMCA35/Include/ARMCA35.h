@@ -1,12 +1,12 @@
 /**************************************************************************//**
- * @file     ARMCA53.h
- * @brief    CMSIS-Core(A) Device Header File for Device ARMCA53
+ * @file     ARMCA35.h
+ * @brief    CMSIS-Core(A) Device Header File for Device ARMCA35
  *
  * @version  V1.0.0
- * @date     31. March 2024
+ * @date     26. Mai 2024
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2023 Arm Limited. All rights reserved.
+ * Copyright (c) 2024 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -23,8 +23,8 @@
  * limitations under the License.
  */
 
-#ifndef ARMCA53_H
-#define ARMCA53_H
+#ifndef ARMCA35_H
+#define ARMCA35_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -114,7 +114,7 @@ typedef enum IRQn
 #define GIC_DISTRIBUTOR_BASE                  VE_A9_MP_GIC_DISTRIBUTOR_BASE
 #define GIC_INTERFACE_BASE                    VE_A9_MP_GIC_INTERFACE_BASE
 #define GIC_REDISTRIBUTOR_BASE                VE_A9_MP_GIC_REDISTRIBUTOR_BASE
-#define TIMER_BASE                            VE_A9_MP_PRIVATE_TIMER´
+#define TIMER_BASE                            VE_A9_MP_PRIVATE_TIMER
 
 /* The VE-A9 model implements L1 cache as architecturally defined, but does not implement L2 cache */
 /* Do not enable the L2 cache if you are running RTX on a VE-A9 model as it may cause a data abort */
@@ -153,8 +153,8 @@ typedef enum IRQn
 #define __FPU_DP                  1U        /* double precision FPU */
 #define __DSP_PRESENT             1U        /* DSP extension present */
 
-#include "core_ca53.h"                      /* Processor and core peripherals */
-#include <system_ARMCA53.h>                 /* System Header */
+#include "core_ca35.h"                      /* Processor and core peripherals */
+#include <system_ARMCA35.h>                 /* System Header */
 
 
 /* ----  End of section using anonymous unions and disabling warnings  ----- */
@@ -181,4 +181,4 @@ typedef enum IRQn
 }
 #endif
 
-#endif  /* ARMCA53_H */
+#endif  /* ARMCA35_H */
