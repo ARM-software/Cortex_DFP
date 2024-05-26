@@ -1,14 +1,11 @@
 /******************************************************************************
- * @file     system_ARMCA53.c
+ * @file     startup_ARMCA35.c
  * @brief    CMSIS Device System Source File for Arm Cortex-A9 Device Series
  * @version  V1.0.0
- * @date     31. March 2024
- *
- * @note
- *
+ * @date     26. Mai 2024
  ******************************************************************************/
 /*
- * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
+ * Copyright (c) 2024 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -25,59 +22,38 @@
  * limitations under the License.
  */
 
-#include "RTE_Components.h"
-#include CMSIS_device_header
-#include "irq_ctrl.h"
+#include <ARMCA35.h>
 
-#define  SYSTEM_CLOCK  12000000U
 
 /*----------------------------------------------------------------------------
-  System Core Clock Variable
+  Internal References
  *----------------------------------------------------------------------------*/
-uint32_t SystemCoreClock = SYSTEM_CLOCK;
+void Vectors        (void) __attribute__ ((naked, section("RESET")));
+void Reset_Handler  (void) __attribute__ ((naked));
+void Default_Handler(void) __attribute__ ((noreturn));
+
 
 /*----------------------------------------------------------------------------
-  System Core Clock update function
+  Exception / Interrupt Vector Table
  *----------------------------------------------------------------------------*/
-void SystemCoreClockUpdate (void)
+void Vectors(void)
 {
-  SystemCoreClock = SYSTEM_CLOCK;
 }
 
 /*----------------------------------------------------------------------------
-  System Initialization
+  Reset Handler called on controller reset
  *----------------------------------------------------------------------------*/
-void SystemInit (void)
+void Reset_Handler(void)
 {
-/* do not use global variables because this function is called before
-   reaching pre-main. RW section may be overwritten afterwards.          */
+  __ASM volatile(
+  // Call __main
+  "BL     __main                                   \n"
+  );
+}
 
-  __DSB();
-  __ISB();
-
-  //  Invalidate data cache
-  L1C_InvalidateDCacheAll();
-
-#if ((__FPU_PRESENT == 1) && (__FPU_USED == 1))
-  // Enable FPU
-  __FPU_Enable();
-#endif
-
-  // Create Translation Table
-//  MMU_CreateTranslationTable();
-
-  // Enable MMU
-//  MMU_Enable();
-
-  // Enable Caches
-  L1C_EnableCaches();
-  L1C_EnableBTAC();
-
-#if (__L2C_PRESENT == 1) 
-  // Enable GIC
-  L2C_Enable();
-#endif
-
-  // IRQ Initialize
-  IRQ_Initialize();
+/*----------------------------------------------------------------------------
+  Default Handler for Exceptions / Interrupts
+ *----------------------------------------------------------------------------*/
+void Default_Handler(void) {
+  while(1);
 }
