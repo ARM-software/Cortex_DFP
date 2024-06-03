@@ -2,7 +2,7 @@
  * @file     system_ARMCA55.h
  * @brief    CMSIS Device System Header File for Arm Cortex-A9 Device Series
  * @version  V1.0.0
- * @date     26. Mai 2024
+ * @date     26. May 2024
  *
  * @note
  *

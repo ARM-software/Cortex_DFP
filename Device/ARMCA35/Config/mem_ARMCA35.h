@@ -2,7 +2,7 @@
  * @file     mem_ARMCA35.h
  * @brief    Memory base and size definitions (used in scatter file)
  * @version  V1.0.0
- * @date     26. Mai 2024
+ * @date     26. May 2024
  *
  * @note
  *
