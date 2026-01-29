@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.37" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.37/schema/PACK.xsd">
+<package schemaVersion="1.7.56" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.56/schema/PACK.xsd">
   <name>Cortex_DFP</name>
   <description>ARM Cortex Reference Subsystems Device Family Pack</description>
   <vendor>ARM</vendor>
@@ -21,7 +21,7 @@
 
   <requirements>
     <packages>
-      <package vendor="ARM" name="CMSIS" version="6.0.0-0"/>
+      <package vendor="ARM" name="CMSIS" version="6.3.0-0"/>
     </packages>
   </requirements>
 
@@ -233,7 +233,7 @@ class processor based on the Armv8-M mainline architecture with Arm TrustZone se
       </device>
     </family>
 
-    <!-- ******************************  Cortex-M55  ****************************** -->
+    <!-- ******************************  Cortex-M52  ****************************** -->
     <family Dfamily="ARM Cortex M52" Dvendor="ARM:82">
       <description>
 The Cortex-M52 processor is a fully synthesizable mid-range microcontroller class processor that implements the Arm®v8.1-M Mainline architecture which includes support for the M-profile Vector Extension (MVE) and Pointer Authentication and Branch Target Identification (PACBTI) Extension.
@@ -258,6 +258,29 @@ These modules are used to execute user-defined instructions that work on general
       </device>
     </family>
 
+    <!-- ******************************  STAR-MC3  ****************************** -->
+    <family Dfamily="ARM China STAR-MC3" Dvendor="ArmChina:160">
+      <description>
+The STAR-MC3 processor is a fully synthesizable mid-range microcontroller class processor that implements the Arm®v8.1-M Mainline architecture which includes support for the M-profile Vector Extension (MVE) and Pointer Authentication and Branch Target Identification (PACBTI) Extension.
+The processor also supports previous Arm®v8-M architectural features.
+The design is focused on compute applications such as Digital Signal Processing (DSP) and machine learning.
+The STAR-MC3 processor is energy efficient and achieves high compute performance across scalar and vector operations while maintaining low power consumption.
+To support Arm Custom Instructions (ACIs), the processor includes optional Custom Datapath Extension (CDE) modules, which are embedded inside the logic.
+These modules are used to execute user-defined instructions that work on general-purpose integer, floating point, and MVE registers.
+      </description>
+
+      <book name="https://www.armchina.com/download/Documents/TRM?infoId=240"       title="Arm China STAR-MC3 Processor Technical Reference Manual"/>
+
+      <device Dname="STARMC3">
+        <processor Dcore="Star-MC3" DcoreVersion="r0p0" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Dpacbti="PACBTI" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <compile header="Device/STARMC3/Include/STARMC3.h" define="STARMC3"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
+      </device>
+    </family>
 
     <!-- ******************************  Cortex-M55  ****************************** -->
     <family Dfamily="ARM Cortex M55" Dvendor="ARM:82">
@@ -655,6 +678,12 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
+	<condition id="STARMC3 CMSIS">
+      <description>Generic Arm China STAR-MC3 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ArmChina:160" Dname="STARMC3*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
     <condition id="ARMCM55 CMSIS">
       <description>Generic Arm Cortex-M55 device startup and depends on CMSIS Core</description>
       <require Dvendor="ARM:82" Dname="ARMCM55*"/>
@@ -893,6 +922,22 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
         <file category="linkerScript" name="Device/ARMCM52/Config/ARMCM52_gcc.ld"                version="1.0.0" attr="config" condition="GCC"/>
         <!-- SAU configuration -->
         <file category="header"  name="Device/ARMCM52/Config/partition_ARMCM52.h" version="1.0.0" attr="config" condition="TZ Secure"/>
+      </files>
+    </component>
+
+    <!-- STAR-MC3 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="2.2.0" condition="STARMC3 CMSIS" isDefaultVariant="true">
+      <description>System and Startup for Generic STAR-MC3 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header" name="Device/STARMC3/Include/STARMC3.h"/>
+        <!-- startup / system file -->
+        <file category="sourceC"      name="Device/STARMC3/Source/startup_STARMC3.c"             version="1.0.0" attr="config"/>
+        <file category="sourceC"      name="Device/STARMC3/Source/system_STARMC3.c"              version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/STARMC3/Config/STARMC3_ac6.sct"               version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/STARMC3/Config/STARMC3_gcc.ld"                version="1.0.0" attr="config" condition="GCC"/>
+        <!-- SAU configuration -->
+        <file category="header"  name="Device/STARMC3/Config/partition_STARMC3.h" version="1.0.0" attr="config" condition="TZ Secure"/>
       </files>
     </component>
 
