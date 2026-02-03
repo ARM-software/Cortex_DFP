@@ -2,7 +2,7 @@
  * @file     startup_ARMCA35.c
  * @brief    CMSIS Device System Source File for Arm Cortex-A9 Device Series
  * @version  V1.0.0
- * @date     26. Mai 2024
+ * @date     26. May 2024
  ******************************************************************************/
 /*
  * Copyright (c) 2024 Arm Limited. All rights reserved.
