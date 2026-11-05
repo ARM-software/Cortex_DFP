@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.56" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.56/schema/PACK.xsd">
+<package schemaVersion="1.7.63" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.63/schema/PACK.xsd">
   <name>Cortex_DFP</name>
   <description>ARM Cortex Reference Subsystems Device Family Pack</description>
   <vendor>ARM</vendor>
@@ -16,6 +16,8 @@
   <releases>
     <release version="0.0.0">
         Active development ...
+      - Added Cortex-M42 reference device based on STAR-MC3.
+      - Restricted Cortex-M4 startup selection to Cortex-M4 devices.
     </release>
   </releases>
 
@@ -254,6 +256,23 @@ These modules are used to execute user-defined instructions that work on general
         <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
         <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
         <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
+      </device>
+    </family>
+
+    <!-- ******************************  Cortex-M42  ****************************** -->
+    <family Dfamily="ARM Cortex M42" Dvendor="ARM:82">
+      <description>Cortex-M42 reference device (STAR-MC3 compatible), Armv8.1-M with TrustZone, DSP, Helium and PACBTI.</description>
+
+
+      <device Dname="ARMCM42">
+        <processor Dcore="Cortex-M42" DcoreVersion="r0p0" Dmpu="MPU" Dfpu="DP_FPU" Dmve="FP_MVE" Dpacbti="PACBTI" Ddsp="DSP" Dtz="TZ" Dendian="Configurable" Dclock="10000000"/>
+        <debug svd="SVD/ARMCM42.svd"/>
+        <compile header="Device/ARMCM42/Include/ARMCM42.h" define="ARMCM42"/>
+
+        <memory name="ROM_S"  access="rxs"  start="0x00000000" size="0x00200000" default="1" startup="1"/>
+        <memory name="RAM_S"  access="rwxs" start="0x20000000" size="0x00020000" default="1"/>
+        <memory name="ROM_NS" access="rxn"  start="0x00200000" size="0x00200000" default="1"/>
         <memory name="RAM_NS" access="rwxn" start="0x20200000" size="0x00020000" default="1"/>
       </device>
     </family>
@@ -644,7 +663,7 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
 
     <condition id="ARMCM4 CMSIS">
       <description>Generic Arm Cortex-M4 device startup and depends on CMSIS Core</description>
-      <require Dvendor="ARM:82" Dname="ARMCM4*"/>
+      <require Dvendor="ARM:82" Dname="ARMCM4*" Dcore="Cortex-M4"/>
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
@@ -675,6 +694,12 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
     <condition id="ARMCM52 CMSIS">
       <description>Generic Arm Cortex-M52 device startup and depends on CMSIS Core</description>
       <require Dvendor="ARM:82" Dname="ARMCM52*"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+    </condition>
+
+    <condition id="ARMCM42 CMSIS">
+      <description>Generic Cortex-M42 device startup and depends on CMSIS Core</description>
+      <require Dvendor="ARM:82" Dname="ARMCM42*"/>
       <require Cclass="CMSIS" Cgroup="CORE"/>
     </condition>
 
@@ -922,6 +947,22 @@ It is a 32-bit core based on the Armv7-R architecture, with an 11-stage pipeline
         <file category="linkerScript" name="Device/ARMCM52/Config/ARMCM52_gcc.ld"                version="1.0.0" attr="config" condition="GCC"/>
         <!-- SAU configuration -->
         <file category="header"  name="Device/ARMCM52/Config/partition_ARMCM52.h" version="1.0.0" attr="config" condition="TZ Secure"/>
+      </files>
+    </component>
+
+    <!-- Cortex-M42 -->
+    <component Cclass="Device" Cgroup="Startup" Cvariant="C Startup" Cversion="1.0.0" condition="ARMCM42 CMSIS" isDefaultVariant="true">
+      <description>System and Startup for Generic Cortex-M42 device</description>
+      <files>
+        <!-- include folder / device header file -->
+        <file category="header" name="Device/ARMCM42/Include/ARMCM42.h"/>
+        <!-- startup / system file -->
+        <file category="sourceC"      name="Device/ARMCM42/Source/startup_ARMCM42.c"             version="1.0.0" attr="config"/>
+        <file category="sourceC"      name="Device/ARMCM42/Source/system_ARMCM42.c"              version="1.0.0" attr="config"/>
+        <file category="linkerScript" name="Device/ARMCM42/Config/ARMCM42_ac6.sct"               version="1.0.0" attr="config" condition="ARMCC6"/>
+        <file category="linkerScript" name="Device/ARMCM42/Config/ARMCM42_gcc.ld"                version="1.0.0" attr="config" condition="GCC"/>
+        <!-- SAU configuration -->
+        <file category="header"  name="Device/ARMCM42/Config/partition_ARMCM42.h" version="1.0.0" attr="config" condition="TZ Secure"/>
       </files>
     </component>
 
